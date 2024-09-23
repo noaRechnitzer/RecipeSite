@@ -1,0 +1,30 @@
+<mat-grid-list cols="2">
+    @for(p of recipes; track p.id){
+
+    <mat-grid-tile>
+            <mat-card class="example-card">
+
+                <mat-card-header style="display: flex; justify-content: space-evenly">
+                    <mat-card-title class="title">
+                        <p>{{p.name}}</p>
+                    </mat-card-title>
+                    <mat-card-subtitle style="display: flex; justify-content: center;">
+                        <p style="margin-left: 7px;">{{p.publishDate | displayDate}}</p>
+                        <p style="margin-right: 7px; font-weight: 550; color: black;">{{p.userCreated_name}}</p>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src={{p.image}} alt="Photo of a Shiba Inu" routerLink="/recipes/{{p.id||p._id}}">
+                <mat-card-content>
+                    <p>
+                        {{p.description | shortDescription}}
+                    </p>
+                    <button mat-fab extended (click)="f(p.id)" *ngIf="personal_area===true" style="background-color: #ffa5c7;" routerLink="/recipes/category/all">
+                        <mat-icon>delete</mat-icon>
+                        מחק מתכון
+                    </button>
+                </mat-card-content>
+            </mat-card>
+    </mat-grid-tile>
+    }
+</mat-grid-list>
+<!-- <router-outlet /> -->

@@ -1,0 +1,17 @@
+@font-face {
+    font-family: Assistant;
+    src: url(../assets/fonts/Assistant/Assistant-VariableFont_wght.ttf) format('woff2'),
+  }
+body{
+    font-family: Assistant;
+    text-align: right;
+    direction: rtl;
+    background-color: #fff5f0;
+}
+p{
+    font-family: Assistant;
+    background-color: #d67b4d;
+}
+button{
+    font-family: Assistant;
+}

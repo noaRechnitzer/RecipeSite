@@ -1,0 +1,69 @@
+.errors{
+    color: red;
+}
+input{
+    width: 199px;
+    //height: 50px;
+    // box-sizing: border-box;
+    font-size: 12pt;
+    background-color: #f6f1f1;
+    padding: 12px 20px 12px 40px;
+    border: 0px solid #f6f1f1;
+    border-radius: 20px;
+    margin: 22px;
+    direction: rtl;
+    text-align: right;
+    margin-top:0px;
+  }
+  body{
+    font-family: Assistant;
+    text-align: right;
+    direction: rtl;
+    background-color: #fff5f0;
+}  
+.submit-button{
+    // width: 199px;
+    //height: 50px;
+    // box-sizing: border-box;
+    font-size: 12pt;
+    background-color: #ffa5c7;
+    padding: 12px 20px 12px 40px;
+    border: 2px solid #f6f1f1;
+    border-radius: 20px;
+    margin: 15px;
+    direction: rtl;
+    text-align: right;
+    position: relative;
+}
+input:active{
+    background-color: #f6f1f1;
+    border: none;
+
+}
+input:focus{
+    border: none;
+    // border: 9px solid #f6f1f1;
+    background-color: #f6f1f1;
+
+}
+.login-template{
+    background-image: url('../../../assets/images/sign-up.png');
+    // background-size: contain;
+    background-position: center; 
+    background-repeat: no-repeat;
+    // padding: 12px 20px 12px 40px;
+    // height:10vh;
+    // border:2px solid #e49f9f;
+}
+form{
+    font-family: Assistant;
+    text-align: right;
+    direction: rtl;
+    margin-top: 160px;
+}
+h4{
+    font-family: Assistant;
+
+    margin: 0px;
+    padding: 0px;
+}

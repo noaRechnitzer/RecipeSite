@@ -1,0 +1,34 @@
+<mat-grid-list cols="4" rowHeight="100vh">
+    <mat-grid-tile colspan="1" rowspan="1" ></mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1" class="login-template">
+        <form ngForm #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">            
+                <div>
+                    <h4>שם משתמש:</h4>
+                    <input type="text" name="userName" ngModel #userNameModel="ngModel"
+                        placeholder="שם משתמש" />
+                    <div class="errors" *ngIf="userNameModel.dirty&&userNameModel.value===''">הקש שם משתמש</div>
+                </div>
+                <div>
+                    <h4>כמה מילים על עצמך:</h4>
+                    <input type="text" name="profile" ngModel #profileModel="ngModel"
+                        placeholder="פרופיל" />
+                    <div class="errors" *ngIf="profileModel.dirty&&profileModel.value===''">הקש שם משתמש</div>
+                </div>
+                <div>
+                    <h4>מייל:</h4>
+                    <input type="text" name="email" ngModel #emailModel="ngModel" pattern=".+@.+\..+"
+                        placeholder="מייל" />
+                    <div class="errors" *ngIf="emailModel.dirty && (emailModel.invalid || emailModel.value==='')">הקש מייל תקין</div>
+                </div>
+                <div>
+                    <h4>סיסמא:</h4>
+                    <input type="password" name="password" ngModel #passwordModel="ngModel" placeholder="סיסמא" />
+                    <div class="errors" *ngIf="passwordModel.dirty&&passwordModel.value===''">הקש סיסמא</div>
+                </div>
+                <button class="submit-button" [disabled]="myForm.invalid || myForm.value.email==='' || myForm.value.password===''">login</button>
+                <div class="errors" *ngIf="!login">{{errorM}}</div>
+                
+        </form>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1" ></mat-grid-tile>
+</mat-grid-list>

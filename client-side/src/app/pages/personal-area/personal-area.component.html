@@ -1,0 +1,12 @@
+<button mat-fab extended routerLink="/addRecipe" style="background-color: #ffa5c7;">
+  <mat-icon>add</mat-icon>
+  מתכון חדש
+</button>
+<button mat-fab extended (click)="log_out()" routerLink="/" style="background-color: #ffa5c7;">
+  <mat-icon>logout</mat-icon>
+התנתקות</button>
+
+<div *ngIf="connectedUser">
+  <app-show-recipes [recipes]="connectedUser.recipes" [personal_area]=true
+    [deleteRecipe]="this.recipeService.delete_Recipe"></app-show-recipes>
+</div>

@@ -1,0 +1,81 @@
+<div style="height: 15vh;"></div>
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <!-- <button mat-raised-button color="primary">
+          <mat-icon>cloud_upload</mat-icon>
+          Upload file
+        </button>
+        <input type="file" #fileInput  hidden> -->
+    <div class="wrrap-div">
+        <div>
+            <h2>שם:</h2>
+            <input type="text" formControlName="name" placeholder="שם מתכון" />
+            <div *ngIf="recipeForm.controls['name'].errors">יש לכתוב שם מתכון</div>
+
+            <h2>תאור:</h2>
+            <textarea placeholder="תאור מתכון" formControlName="description"></textarea>
+            <div *ngIf="recipeForm.controls['description'].errors">יש לכתוב תאור מתכון</div>
+            <h2>קטגוריות:</h2>
+            <mat-form-field>
+                <mat-select formControlName="categoryName" multiple>
+                    @for (topping of toppingList; track topping) {
+                    <mat-option [value]="topping">{{topping.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+            <h4>אחר:</h4>
+            <input #new_category type="text" style="height: 30px; margin-top: 0px;">
+            <button style="margin: 0px ;" type="button"
+                (click)="addNewCategory(new_category)"><mat-icon>add</mat-icon></button>
+            <div *ngIf="recipeForm.controls['categoryName'].errors">יש לבחור קטגוריה</div>
+            <div *ngIf="notValidC!=''">{{notValidC}}</div>
+            <h2>נתיב תמונה:</h2>
+            <input type="text" formControlName="image" />
+            <div *ngIf="recipeForm.controls['image'].errors">יש לכתוב נתיב תמונה</div>
+            <h2>רמת קושי (1-5):</h2>
+            <input type="number" placeholder="רמת הקושי" formControlName="level" max="5" min="1" />
+            <div *ngIf="recipeForm.controls['level'].errors">יש לבחור רמת קושי</div>
+            <h2>זמן הכנה בדקות:</h2>
+            <input type="number" placeholder="זמן הכנה בדקות" formControlName="prepareMinute" min="1" />
+            <div *ngIf="recipeForm.controls['prepareMinute'].errors">יש לכתוב את זמן ההכנה</div>
+        </div>
+        <div formArrayName="steps">
+            <h2>מצרכים:</h2>
+            <button type="button" (click)="addStep()">הוסף שלב</button>
+            <div *ngFor="let step of steps.controls; let s = index">
+                <div [formGroupName]="s">
+                    <h2>שלב {{s+1}}</h2>
+                    <input type="text" placeholder="שם שלב:" formControlName="name">
+                    <div formArrayName="ingredients">
+                        <div *ngFor="let ingredient of ingredients(s).controls; let i = index" [formGroupName]="i">
+                            <input type="text" placeholder="שם רכיב: {{i+1}}" formControlName="name">
+                        </div>
+                    </div>
+                    <button type="button" (click)="addIngredients(s)"> <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div formArrayName="instructions">
+            <h2>הוראות הכנה:</h2>
+            <div *ngFor="let instruction of instructions.controls; let i = index" [formGroupName]="i">
+                <textarea placeholder="שם הוראה: {{i+1}}" formControlName="name"></textarea>
+            </div>
+            <button type="button" (click)="addInstruction()"><mat-icon>add</mat-icon></button>
+        </div>
+
+        <div *ngIf="recipeForm.controls['instructions'].errors">יש לכתוב לפחות הוראה אחת</div>
+
+
+    </div>
+    <label class="example-margin">בחר הרשאת גישה:</label>
+    <mat-radio-group [(ngModel)]="selectedOption"  formControlName="private">
+        <mat-radio-button class="example-margin" value=false>
+            public
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value=true>
+            private
+        </mat-radio-button>
+    </mat-radio-group>
+    <button type="submit" [disabled]="recipeForm.invalid">Submit Recipe</button>
+
+</form>

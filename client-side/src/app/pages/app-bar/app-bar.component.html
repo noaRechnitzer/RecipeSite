@@ -1,0 +1,36 @@
+<div style="display: flex; justify-content: space-between">
+    <div style="display: flex;">
+        <button mat-icon-button class="login-button" routerLink="/login" *ngIf="!userName">
+            <img *ngIf="userName===''" src="../../../assets/images/login.png" alt="login" style="height: 30px; width: 30px;">
+        </button>
+        <button mat-icon-button class="login-button" routerLink="/personal-area" *ngIf="userName">
+            <p *ngIf="userName">{{userName}}</p>
+        </button>
+        
+        <!-- <button mat-button [matMenuTriggerFor]="menu" *ngIf="userName">{{userName}}</button> -->
+        <!-- <mat-menu #menu1="matMenu" *ngIf="userName">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>nmlkmlkmk;klpk;lgo
+        </mat-menu> -->
+        <input [(ngModel)]="sereachValue" (keypress)="onKeyPress($event)" type="text" name="search" placeholder="חיפוש...">
+
+    </div>
+    <div style="display: flex; flex-direction: row-reverse">
+        <button class="nav-button" mat-button style="margin-right: 200px;" routerLink="/recipes/category/all">הכל</button>
+       @for(category of categoriesName; track category._id){
+           <button class="nav-button" mat-button routerLink="/recipes/category/{{category.name}}">{{category.name}}</button>
+       }
+        
+        <!-- <button class="nav-button" mat-button routerLink="/recipes">עוגות</button>
+        <button class="nav-button" mat-button routerLink="/recipes">קינוחים</button>
+        <button class="nav-button" mat-button routerLink="/recipes">עוגיות</button>
+        <button class="nav-button" mat-button routerLink="/recipes">מיוחדים</button>
+        <button class="nav-button" mat-button routerLink="/recipes">חלבי</button>
+        <button class="nav-button" mat-button routerLink="/recipes">...עוד</button> -->
+    </div>
+</div>
+<p>
+    <!-- <mat-toolbar> -->
+    <img src="../../../assets/images/app-bar-image.png" />
+    <!-- </mat-toolbar> -->
+</p>

@@ -1,0 +1,11 @@
+
+.recipe-item {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+mat-list-item {
+    padding: 0; /* Remove default padding */
+  }

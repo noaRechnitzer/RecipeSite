@@ -1,0 +1,33 @@
+.example-card {
+    // max-width: 400px;
+    width: 30vw;
+    height:68vh;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    //background-color: antiquewhite;
+
+      direction: rtl;
+      text-align: center;
+
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    // background-size: cover;
+  }
+  p{
+    font-family: Assistant;
+    text-align: center;
+}
+body{
+    direction: rtl;
+    text-align: center;
+
+}
+.title{
+    // font:bold 12px/30px Georgia, serif;
+    font-family: Assistant;
+    font-weight: 630;
+    font-size: 14pt;
+    height: 60%;
+}

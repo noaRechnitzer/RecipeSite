@@ -1,0 +1,23 @@
+<mat-grid-list cols="4" rowHeight="100vh">
+    <mat-grid-tile colspan="1" rowspan="1" ></mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1" class="login-template">
+        <form ngForm #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+        <a href="/signUp">אין לך עדיין חשבון?</a>
+            
+                <div>
+                    <h4>מייל:</h4>
+                    <input type="text" name="email" ngModel #emailModel="ngModel" pattern=".+@.+\..+"
+                        placeholder="מייל:" />
+                    <div class="errors" *ngIf="emailModel.dirty && emailModel.invalid">הקש מייל תקין</div>
+                </div>
+                <div>
+                    <h4>סיסמא:</h4>
+                    <input type="password" name="password" ngModel #passwordModel="ngModel" placeholder="סיסמא" />
+                </div>
+                <button class="submit-button" [disabled]="myForm.invalid || myForm.value.email==='' || myForm.value.password===''">login</button>
+                <div class="errors" *ngIf="!login">שם משתמש או סיסמא שגויים.</div>
+                
+        </form>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1" ></mat-grid-tile>
+</mat-grid-list>
