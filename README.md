@@ -40,7 +40,7 @@ This project is a web application for sharing and managing recipes. The applicat
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/noaRechnitzer/noaRechnitzer.git
+   git clone https://github.com/noaRechnitzer/RecipeSite.git
 2. **Install server dependencies**:
    ```bash
    cd server-side
@@ -51,7 +51,7 @@ This project is a web application for sharing and managing recipes. The applicat
    npm install
 4. **Environment variables:** Create a .env file in the server-side folder with the following content:
    ```bash
-   PORT=<your-port>
+   PORT=500
    DB_URL=mongodb+srv://noaRe:nR6787661@mycluster.emynhxf.mongodb.net/recipe_siteDB?retryWrites=true&w=majority&appName=MyCluster
    BCRYPT_SALT=<your-bcrypt-salt>
    JWT_SECRET=<your-secret-key>
