@@ -53,7 +53,7 @@ This project is a web application for sharing and managing recipes. The applicat
    ```bash
    PORT=<your-port>
    DB_URL=mongodb+srv://noaRe:nR6787661@mycluster.emynhxf.mongodb.net/recipe_siteDB?retryWrites=true&w=majority&appName=MyCluster
-   BCRYPT_SALT=<your-bcrypr-sat>
+   BCRYPT_SALT=<your-bcrypt-salt>
    JWT_SECRET=<your-secret-key>
 5. **Run the backend (server)**:
    ```bash
