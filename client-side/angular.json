@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "recipes_client_side": {
+    "client-side": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/recipes_client_side",
+            "outputPath": "dist/client-side",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "recipes_client_side:build:production"
+              "buildTarget": "client-side:build:production"
             },
             "development": {
-              "buildTarget": "recipes_client_side:build:development"
+              "buildTarget": "client-side:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "recipes_client_side:build"
+            "buildTarget": "client-side:build"
           }
         },
         "test": {
