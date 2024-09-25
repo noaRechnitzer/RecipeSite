@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { environment } from '../../../environment';
+import { environment } from '../../../environments/environment';
 import { User } from '../models/user';
 import { Observable, Observer, tap } from 'rxjs';
 
@@ -12,7 +12,7 @@ export class UsersService {
   constructor() { }
 
 
-  private usersURL = `${environment.apiURL}/user`;
+  private usersURL = `${environment.API_URL}/user`;
 
   private connectedUserInfo$: any = new Object("ll");
 

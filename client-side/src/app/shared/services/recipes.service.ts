@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Recipe } from '../models/recipe';
-import { environment } from '../../../environment';
+import { environment } from '../../../environments/environment';
 import { UsersService } from './users.service';
 import { Observable, of } from 'rxjs';
 
@@ -12,7 +12,7 @@ export class RecipesService {
 
   private http = inject(HttpClient);
   private userService = inject(UsersService);
-  private recipeURL = `${environment.apiURL}/recipe`;
+  private recipeURL = `${environment.API_URL}/recipe`;
   private recipes$: Observable<Recipe[]> = of([]);
   get Recipes$() {
     // to save in memory 

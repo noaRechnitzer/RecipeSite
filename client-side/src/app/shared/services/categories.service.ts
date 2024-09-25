@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { environment } from '../../../environment';
+import { environment } from '../../../environments/environment';
 import { Category } from '../models/category';
 import { Observable, of, tap } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Observable, of, tap } from 'rxjs';
 export class CategoriesService {
 
   private http = inject(HttpClient);
-  private categoryURL = `${environment.apiURL}/category`;
+  private categoryURL = `${environment.API_URL}/category`;
   categories:Map<string, Category>;
   names:Category[]=[]
   constructor() { 
