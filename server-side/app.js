@@ -10,6 +10,7 @@ require('dotenv').config();
 require('./config/db')
 
 const app = express();
+const path = require('path');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
@@ -17,16 +18,30 @@ app.use(express.urlencoded({extended: true}))
 app.use(morgan("dev"));
 // app.use(cors());
 app.use(cors({
-  origin: 'http://localhost:4200', // או הדומיין ממנו אתה שולח את הבקשה
+  origin: 'https://culinary-crossroads.onrender.com', // או הדומיין ממנו אתה שולח את הבקשה
+  //origin: 'http://localhost:4200', // או הדומיין ממנו אתה שולח את הבקשה
   methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.get("/", (req, res)=>{
     res.send("wellcome")
 })
+
+
+
+
+
 app.use("/recipe", recipeRouter);
 app.use("/user", userRouter);
 app.use("/category", categoryRouter);
+
+// הגדרת תיקיית הבנייה של Angular כסטטית
+app.use(express.static(path.join(__dirname, 'dist/recipes_client_side')));
+
+// ניתוב כל הבקשות לקובץ index.html
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'dist/recipes_client_side/index.html'));
+});
 
 const port = process.env.PORT;
 app.listen(port, () => {
