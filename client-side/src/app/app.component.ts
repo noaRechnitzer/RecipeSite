@@ -13,5 +13,5 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'recipes_client_side';
+  title = 'client-side';
 }

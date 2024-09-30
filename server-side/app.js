@@ -36,11 +36,11 @@ app.use("/user", userRouter);
 app.use("/category", categoryRouter);
 
 // הגדרת תיקיית הבנייה של Angular כסטטית
-app.use(express.static(path.join(__dirname, 'dist/recipes_client_side')));
+app.use(express.static(path.join(__dirname, 'dist/client-side')));
 
 // ניתוב כל הבקשות לקובץ index.html
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'dist/recipes_client_side/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/client-side/index.html'));
 });
 
 const port = process.env.PORT;
