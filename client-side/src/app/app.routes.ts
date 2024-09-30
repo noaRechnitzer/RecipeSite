@@ -4,8 +4,8 @@ import { RecipeDetailsComponent } from './pages/recipe-details/recipe-details.co
 import { authGuard } from './shared/guards/auth.guard';
   
 export const routes: Routes = [
-    { path: '', loadComponent: () => import('./pages/login-form/login-form.component').then(f => f.LoginFormComponent)   },
-    { path: '**', loadComponent: () => import('./pages/login-form/login-form.component').then(f => f.LoginFormComponent)  },
+    //{ path: '', loadComponent: () => import('./pages/login-form/login-form.component').then(f => f.LoginFormComponent)   },
+    //{ path: '**', loadComponent: () => import('./pages/login-form/login-form.component').then(f => f.LoginFormComponent)  },
     { path: 'login', loadComponent: () => import('./pages/login-form/login-form.component').then(f => f.LoginFormComponent) },
     { path: 'personal-area', loadComponent: () => import('./pages/personal-area/personal-area.component').then(f => f.PersonalAreaComponent) , canActivate: [authGuard]},
     // { path: 'recipes', loadComponent: () => import('./pages/recipes-list/recipes-list.component').then(f => f.RecipesListComponent) , children: [
